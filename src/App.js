@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
+import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -41,7 +42,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="navbar">
           <a href="#home" className={currentSection === "home" ? "active" : ""}>
             Home
@@ -57,6 +57,9 @@ function App() {
             className={currentSection === "experience" ? "active" : ""}
           >
             Experience
+          </a>
+          <a href={pdfFile} download className="download-link button">
+            Resume
           </a>
         </div>
         <Home />
