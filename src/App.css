@@ -45,6 +45,8 @@
 
 .navbar a.active {
   border-bottom: 2px solid #61dafb;
+  font-weight: bold;
+
   transition: border-bottom 0.3s ease-in-out;
 }
 .active {

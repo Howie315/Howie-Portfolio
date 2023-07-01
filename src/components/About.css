@@ -1,0 +1,81 @@
+
+
+#about .content-section {
+    padding: 40px;
+    text-align: left;
+    background-color: #222222; /* Update to the black color */
+     height: 1300px;
+    margin-top: 55px; 
+    height: 1300px;
+    margin-right: 400px;
+    line-height: 1.6;  /* Increase line spacing */
+    
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+  }
+  
+
+  #about h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #about p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #999;
+  }
+  
+  .technology-list {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;  /* Adjust to your liking */
+    margin: 0 auto;
+    margin-left: 25px;
+  }
+  .techName{
+    font-size: 20px;
+  }
+  
+  .technology-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .technology-list li::after {
+    
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #000;  /* Change this to the color you want for the dotted line */
+  
+    margin: 10px 0;  /* Increase space between list items */
+  }
+  .technology-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    position: relative;  /* Add this line */
+    
+
+  }
+  .about-image-container {
+    flex-basis: 30%; /* Adjust to control the width of the image container */
+  }
+  
+  .about-image {
+    width: 200px; /* Makes the image responsive */
+    height: 200px;
+  }
+
+  .technology-item::before {
+    content: "";
+    position: absolute;
+    left: -20px;  /* Adjust this to position the dot as needed */
+    width: 6px;
+    height: 6px;
+    background-color: white;  /* Adjust to match your site's color scheme */
+    border-radius: 50%;  /* Makes the dot circular */
+  }
+  

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -8,29 +7,26 @@ import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
+  const sections = ["home", "about", "experience"];
 
   useEffect(() => {
     const handleScroll = () => {
-      const home = document.getElementById("home").getBoundingClientRect();
-      const about = document.getElementById("about").getBoundingClientRect();
-      const experience = document
-        .getElementById("experience")
-        .getBoundingClientRect();
-      const halfWindowHeight = window.innerHeight / 2;
+      const scrollY = window.scrollY;
+      const windowInnerHeight = window.innerHeight;
 
-      if (home.top <= halfWindowHeight && home.bottom >= halfWindowHeight) {
-        setCurrentSection("home");
-      } else if (
-        about.top <= halfWindowHeight &&
-        about.bottom >= halfWindowHeight
-      ) {
-        setCurrentSection("about");
-      } else if (
-        experience.top <= halfWindowHeight &&
-        experience.bottom >= halfWindowHeight
-      ) {
-        setCurrentSection("experience");
-      }
+      let activeSection = "home";
+
+      sections.forEach((section) => {
+        const sectionElement = document.getElementById(section);
+        const offsetStart = sectionElement.offsetTop - windowInnerHeight / 2;
+        const offsetEnd = offsetStart + sectionElement.offsetHeight;
+
+        if (scrollY >= offsetStart && scrollY < offsetEnd) {
+          activeSection = section;
+        }
+      });
+
+      setCurrentSection(activeSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -52,6 +48,7 @@ function App() {
           >
             About
           </a>
+
           <a
             href="#experience"
             className={currentSection === "experience" ? "active" : ""}
@@ -62,9 +59,15 @@ function App() {
             Resume
           </a>
         </div>
-        <Home />
-        <About />
-        <Experience />
+        <div id="home">
+          <Home />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="experience">
+          <Experience />
+        </div>
       </header>
     </div>
   );

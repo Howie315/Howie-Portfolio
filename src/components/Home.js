@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"; // import these at the top of your file
 import "./Home.css";
 
 const TypewriterText = ({ text, delay = 100, onComplete }) => {
@@ -54,9 +55,9 @@ const Home = () => {
         </h1>
       )}
       {isProfessionTyped && (
-        <h1>
+        <h3>
           <TypewriterText text="crafting magic for mobile" delay={100} />
-        </h1>
+        </h3>
       )}
       {showSummary && (
         <p className="fade-in">
@@ -72,7 +73,36 @@ const Home = () => {
           that drive engagement and exceed client expectations.
         </p>
       )}
-      {showButton && <button className="fade-in">Contact me</button>}
+      {showButton && (
+        <div className="contact-container fade-in">
+          <a href="mailto:nguyen.howie2010@gmail.com">
+            <button>Contact me</button>
+          </a>
+          <div className="social-icons">
+            <a
+              href="https://github.com/Howie315"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={30} />
+            </a>
+            <a
+              href="https://instagram.com/howie.nguyen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram size={30} />
+            </a>
+            <a
+              href="https://linkedin.com/in/howie-nguyen-491587216/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin size={30} />
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
