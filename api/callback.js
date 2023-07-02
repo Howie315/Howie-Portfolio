@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
         params: {
           grant_type: "authorization_code",
           code,
-          redirect_uri: "http://localhost:3000/api/callback", // note the /api/callback route here
+          redirect_uri: "https://howie-portfolio.vercel.app/api/callback", // note the /api/callback route here
           client_id: "87fcc6d0cb494536a8112b362e87d18c",
           client_secret: "37c0cd373f1c4b598233c2cdaf853bf0",
         },
