@@ -13,7 +13,7 @@ function App() {
   const [currentSection, setCurrentSection] = useState("home");
   const [accessToken, setAccessToken] = useState(null);
   const [trackUri, setTrackUri] = useState(
-    "spotify:playlist:06kWMlOMwbfRzNbmizxRIz?si=7a1ba407bcce42fa"
+    "spotify:playlist:06kWMlOMwbfRzNbmizxRIz"
   );
   const [play, setPlay] = useState(false);
   const sections = ["home", "about", "experience"];
@@ -100,11 +100,7 @@ function App() {
           <button onClick={() => setPlay(!play)}>
             {play ? "Pause" : "Play"}
           </button>
-          <SpotifyPlayer
-            token={accessToken}
-            uris={play ? [trackUri] : []}
-            play={play}
-          />
+          <SpotifyPlayer uris={[trackUri]} play={play} />
         </div>
 
         <div id="home">
