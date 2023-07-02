@@ -9,13 +9,17 @@ import { TiCode } from "react-icons/ti";
 import { TiDeviceDesktop } from "react-icons/ti";
 import { IoIosRocket } from "react-icons/io";
 import { IoIosAnalytics } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
 import "./Experience.css";
 
 const Experience = () => {
+  const isMobileDevice = useMediaQuery({
+    query: "(max-device-width: 768px)",
+  });
   return (
     <div id="experience" className="content-section">
       <h4 className="experience-header">Experience</h4>
-      <VerticalTimeline>
+      <VerticalTimeline layout={isMobileDevice ? "1-column" : "2-columns"}>
         <VerticalTimelineElement
           className="vertical-timeline-element--work timeline-element"
           contentStyle={{ background: "#F1F1F1", color: "#333" }}
