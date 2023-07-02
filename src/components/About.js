@@ -87,13 +87,9 @@ const About = () => {
           algorithms that form the backbone of software development. The dynamic
           nature of the field keeps me on my toes, as there are always new
           technologies to learn, paradigms to adapt to, and problems to solve.
-          This constant learning curve is what makes software development both
-          challenging and exciting. Seeing a project evolve from a simple idea
-          to a fully functional application that can potentially be used by
-          millions is an experience like no other. Each new project is a
-          journey, each bug a challenge, and each resolved issue a victory. This
-          cyclical process of creation, problem-solving, and evolution is what
-          fuels my passion and commitment to this field.
+          Each new project is a journey, each bug a challenge, and each resolved
+          issue a victory. This cyclical process of creation, problem-solving,
+          and evolution is what fuels my passion and commitment to this field.
         </p>
       </AnimatedVisibilitySensor>
 

@@ -79,6 +79,37 @@
   background-color: #111111; /* Darker shade for hover effect */
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #222222;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar.open {
+    transform: translateX(0);
+  }
+
+  .navbar a {
+    margin: 20px 0;
+  }
+
+  .navbar-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
 
 /* This makes the scrolling behavior smooth */
 html {

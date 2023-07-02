@@ -111,4 +111,9 @@
       opacity: 1;
     }
   }
-  
+  @media screen and (max-width: 768px) {
+    #home .content-section {
+      margin-top: 50px;
+      margin-right: 20px;
+    }
+  }
