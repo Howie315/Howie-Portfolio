@@ -18,23 +18,6 @@ function App() {
   const [play, setPlay] = useState(false);
   const sections = ["home", "about", "experience"];
 
-  const handleSpotifyLogin = () => {
-    // Define these values for your application
-    const clientId = "87fcc6d0cb494536a8112b362e87d18c";
-    const redirectUri = encodeURIComponent(
-      "https://howie-portfolio.vercel.app/api/callback"
-    );
-    const scopes = encodeURIComponent(
-      "streaming user-read-email user-read-private"
-    );
-
-    // Create the authorization URL
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=${scopes}`;
-
-    // Redirect the user to the authorization URL
-    window.location.href = authUrl;
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -94,8 +77,6 @@ function App() {
           <a href={pdfFile} download className="download-link button">
             Resume
           </a>
-
-          <button onClick={handleSpotifyLogin}>Login to Spotify</button>
 
           <button onClick={() => setPlay(!play)}>
             {play ? "Pause" : "Play"}
