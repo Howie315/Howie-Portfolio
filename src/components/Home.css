@@ -1,35 +1,40 @@
 /* Home.css */
 
-.content-section {
+#home .content-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;  /* Align items to the start (left for LTR languages) */
     padding: 20px;
     text-align: left;  /* Align text to the left */
-    margin-top: 240px;
+    margin-top: 240px; /* Adjust the margin-top value to reduce the space */
     margin-right: 200px;
     
   }
 
-  .content-section h1,
+  #home .content-section h1,
 .content-section h2 {
   margin-bottom: -40px; /* adjust as needed */
 }
 
   
-  h1 {
+  #home h1 {
     font-size: 2.5em;
     color: white;
   }
-  
-  h2 {
+ #home h3 {
+    font-size: 2.5em;
+    color: #a7aeb4;
+    margin-bottom: -20px;
+    margin-top: 20px;
+  }
+ #home h2 {
     font-size: 20px;
     color: white;
   }
   
-  p {
+ #home p {
     margin-top: 50px;
-    font-size: 15px;
+    font-size: 16px;
     color: #999;
     margin-bottom: 40px;
   }
@@ -43,7 +48,7 @@
     background-color: #222222; /* Update to the black color */
     color: white;
     cursor: pointer;
-    opacity: 0;
+    
     border: 2px solid white; /* Set border color to white */
     transition: opacity 2s;
   }
@@ -52,15 +57,53 @@
     background-color: #111111; /* Darker shade for hover effect */
   }
   button.fade-in {
-    opacity: 1;
+    display: inline-block;
   }
   
   .fade-in {
     animation: fadeIn 2s ease-in forwards;
   }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+
+  }
+  
+  .social-icons a {
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #999;
+  }
+  
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;  
+  }
+  
   
   @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   
