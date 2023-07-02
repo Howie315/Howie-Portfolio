@@ -30,13 +30,14 @@
     #experience .content-section {
       margin-right: 0;
     }
-    
+  
     #experience .vertical-timeline-element-title{
       font-size: 22px;
     }
   
-    .experience-header {
-      font-size: 18px;
-      margin-left: 10px;
+    #experience .vertical-timeline-element-content p{
+      font-size: 14px;
     }
   }
+
+  
