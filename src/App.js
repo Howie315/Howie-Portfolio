@@ -6,13 +6,10 @@ import Experience from "./components/Experience";
 import { FaSpotify } from "react-icons/fa";
 
 import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
-import SpotifyPlayer from "react-spotify-web-playback";
-import SpotifyWebApi from "spotify-web-api-js";
-
-import axios from "axios";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
+  const [loading, setLoading] = useState(true); // Add this state
 
   const sections = ["home", "about", "experience"];
 
@@ -42,6 +39,28 @@ function App() {
     };
   }, []);
 
+  // Simulating a loading period of 3 seconds
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2100);
+  }, []);
+
+  if (loading) {
+    return (
+      <iframe
+        src="https://embed.lottiefiles.com/animation/66470"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          border: "none",
+        }}
+      ></iframe>
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
