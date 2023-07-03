@@ -6,23 +6,13 @@ import Experience from "./components/Experience";
 import { FaSpotify } from "react-icons/fa";
 
 import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
-import SpotifyPlayer from "react-spotify-web-playback";
-import SpotifyWebApi from "spotify-web-api-js";
-
-import axios from "axios";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
-  const [token, setToken] = useState(null);
-  const [trackUri, setTrackUri] = useState(
-    "spotify:playlist:06kWMlOMwbfRzNbmizxRIz"
-  );
-  const [play, setPlay] = useState(false);
+  const [loading, setLoading] = useState(true); // Add this state
 
   const sections = ["home", "about", "experience"];
-  const spotifyApi = new SpotifyWebApi({
-    clientId: "87fcc6d0cb494536a8112b362e87d18c",
-  });
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -49,29 +39,28 @@ function App() {
     };
   }, []);
 
+  // Simulating a loading period of 3 seconds
   useEffect(() => {
-    // Get the hash of the url
-    const hash = window.location.hash
-      .substring(1)
-      .split("&")
-      .reduce(function (initial, item) {
-        if (item) {
-          var parts = item.split("=");
-          initial[parts[0]] = decodeURIComponent(parts[1]);
-        }
-        return initial;
-      }, {});
-
-    window.location.hash = "";
-
-    let _token = hash.access_token;
-
-    if (_token) {
-      // Set token
-      setToken(_token);
-      spotifyApi.setAccessToken(_token);
-    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 2100);
   }, []);
+
+  if (loading) {
+    return (
+      <iframe
+        src="https://embed.lottiefiles.com/animation/66470"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          border: "none",
+        }}
+      ></iframe>
+    );
+  }
   return (
     <div className="App">
       <header className="App-header">
