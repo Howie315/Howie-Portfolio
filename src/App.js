@@ -43,7 +43,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2100);
+    }, 2300);
   }, []);
 
   if (loading) {
