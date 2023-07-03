@@ -4,8 +4,10 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import { FaSpotify } from "react-icons/fa";
+import animationData from "./components/gojo.json";
 
 import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
+import Lottie from "react-lottie-player";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -53,22 +55,34 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2300);
+    }, 2400);
   }, []);
 
   if (loading) {
     return (
-      <iframe
-        src="https://embed.lottiefiles.com/animation/66470"
+      <Lottie
+        loop
+        animationData={animationData}
+        play
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 0,
           left: 0,
-          width: "100vw",
-          height: "100vh",
-          border: "none",
+          width: "100%",
+          height: "100%",
         }}
-      ></iframe>
+      />
+      // <iframe
+      //   src="https://embed.lottiefiles.com/animation/66470"
+      //   style={{
+      //     position: "absolute",
+      //     top: 0,
+      //     left: 0,
+      //     width: "100vw",
+      //     height: "100vh",
+      //     border: "none",
+      //   }}
+      // ></iframe>
     );
   }
   return (
