@@ -110,6 +110,24 @@
     cursor: pointer;
   }
 }
+#spotify-player {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #spotify-player {
+      display: block;
+      position: static;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .spotify-iframe {
+      width: 80% !important;
+      height: 150px !important;
+  }
+}
 
 /* This makes the scrolling behavior smooth */
 html {
