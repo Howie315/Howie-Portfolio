@@ -13,6 +13,16 @@ function App() {
 
   const sections = ["home", "about", "experience"];
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -103,6 +113,18 @@ function App() {
 
         <div id="home">
           <Home />
+        </div>
+        <div id="spotify-player">
+          <iframe
+            className="spotify-iframe"
+            src="https://open.spotify.com/embed/playlist/06kWMlOMwbfRzNbmizxRIz?utm_source=generator&theme=0"
+            width="300"
+            height="80"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
         </div>
 
         <div id="about">
