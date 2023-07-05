@@ -5,7 +5,7 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import { FaSpotify } from "react-icons/fa";
 import animationData from "./components/gojo.json";
-
+import MouseFollower from "./components/MouseFollower";
 import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
 import Lottie from "react-lottie-player";
 
@@ -17,6 +17,19 @@ function App() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    setMousePosition({ x: clientX, y: clientY });
+  };
+  useEffect(() => {
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -25,6 +38,7 @@ function App() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -51,11 +65,11 @@ function App() {
     };
   }, []);
 
-  // Simulating a loading period of 3 seconds
+  // Simulating a loading period of 2 seconds
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2400);
+    }, 2000);
   }, []);
 
   if (loading) {
@@ -72,17 +86,6 @@ function App() {
           height: "100%",
         }}
       />
-      // <iframe
-      //   src="https://embed.lottiefiles.com/animation/66470"
-      //   style={{
-      //     position: "absolute",
-      //     top: 0,
-      //     left: 0,
-      //     width: "100vw",
-      //     height: "100vh",
-      //     border: "none",
-      //   }}
-      // ></iframe>
     );
   }
   return (
@@ -148,6 +151,14 @@ function App() {
           <Experience />
         </div>
       </header>
+      <div
+        className="mouse-animation"
+        style={{
+          position: "fixed",
+          top: mousePosition.y,
+          left: mousePosition.x,
+        }}
+      ></div>
     </div>
   );
 }
