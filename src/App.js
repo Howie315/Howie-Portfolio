@@ -12,6 +12,7 @@ import Lottie from "react-lottie-player";
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
   const [loading, setLoading] = useState(true); // Add this state
+  const [showMouseAnimation, setShowMouseAnimation] = useState(false);
 
   const sections = ["home", "about", "experience"];
 
@@ -21,15 +22,25 @@ function App() {
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event;
+    if (!showMouseAnimation) {
+      setShowMouseAnimation(true);
+    }
     setMousePosition({ x: clientX, y: clientY });
   };
+
   useEffect(() => {
+    const handleMouseLeave = () => {
+      setShowMouseAnimation(false);
+    };
+
     document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [showMouseAnimation]);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -151,14 +162,16 @@ function App() {
           <Experience />
         </div>
       </header>
-      <div
-        className="mouse-animation"
-        style={{
-          position: "fixed",
-          top: mousePosition.y,
-          left: mousePosition.x,
-        }}
-      ></div>
+      {showMouseAnimation && (
+        <div
+          className="mouse-animation"
+          style={{
+            position: "fixed",
+            top: mousePosition.y,
+            left: mousePosition.x,
+          }}
+        ></div>
+      )}
     </div>
   );
 }
