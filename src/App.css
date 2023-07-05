@@ -49,6 +49,12 @@
 
   transition: border-bottom 0.3s ease-in-out;
 }
+.navbar a:hover {
+  border-bottom: 2px solid #61dafb;
+  font-weight: bold;
+  transition: border-bottom 0.3s ease-in-out;
+}
+
 .active {
   text-decoration: underline;
   transition: text-decoration 0.5s;
@@ -112,6 +118,7 @@
   .navbar a {
     margin: 20px 0;
   }
+  
 
   .navbar-toggle {
     position: fixed;
@@ -138,6 +145,58 @@
       width: 80% !important;
       height: 150px !important;
   }
+  .mouse-animation {
+    display: none;
+  }
+}
+
+.mouse-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: shadow 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.6), 0 0 120px rgba(255, 255, 255, 0.4), 0 0 160px rgba(255, 255, 255, 0.2);
+  }
+}
+
+
+.mouse-animation::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  ); /* Create a radial gradient effect */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-out; /* Add a smooth transition effect */
+}
+
+.mouse-animation:hover {
+  transform: translate(-50%, -50%) scale(1.5); /* Increase the size of the element on hover */
+}
+
+.mouse-animation:hover::before {
+  opacity: 1; /* Show the radial gradient effect on hover */
 }
 
 /* This makes the scrolling behavior smooth */
