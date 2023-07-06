@@ -150,28 +150,28 @@
   }
 }
 
+
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 80px 30px rgba(255, 255, 255, 0.8); /* Slightly smaller glow to start with */
+  }
+  50% {
+    box-shadow: 0 0 100px 60px rgba(255, 255, 255, 0.8); /* Full glow */
+  }
+  100% {
+    box-shadow: 0 0 80px 30px rgba(255, 255, 255, 0.8); /* Return to the smaller glow */
+  }
+}
 .mouse-animation {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  animation: shadow 0.6s infinite alternate ease-in-out;
+  animation: shadow 1.5s infinite alternate ease-in-out; /* Slow down the animation */
 }
-
-@keyframes shadow {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.6), 0 0 120px rgba(255, 255, 255, 0.4), 0 0 160px rgba(255, 255, 255, 0.2);
-  }
-}
-
 
 .mouse-animation::before {
   content: "";
@@ -189,6 +189,7 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.2s ease-out; /* Add a smooth transition effect */
+  
 }
 
 .mouse-animation:hover {
