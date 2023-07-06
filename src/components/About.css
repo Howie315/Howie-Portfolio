@@ -53,6 +53,7 @@
     margin: 10px 0;  /* Increase space between list items */
   }
   .technology-item {
+    color: #a7aeb4;
     height: 40px;
     display: flex;
     align-items: center;

@@ -154,13 +154,13 @@
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 0 80px 30px rgba(255, 255, 255, 0.8); /* Slightly smaller glow to start with */
+    box-shadow: 0 0 170px 120px rgba(255, 255, 255, 0.8); /* Slightly smaller glow to start with */
   }
   50% {
-    box-shadow: 0 0 100px 60px rgba(255, 255, 255, 0.8); /* Full glow */
+    box-shadow: 0 0 200px 160px rgba(255, 255, 255, 0.8); /* Full glow */
   }
   100% {
-    box-shadow: 0 0 80px 30px rgba(255, 255, 255, 0.8); /* Return to the smaller glow */
+    box-shadow: 0 0 170px 120px rgba(255, 255, 255, 0.8); /* Return to the smaller glow */
   }
 }
 .mouse-animation {
@@ -170,7 +170,8 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  animation: shadow 1.5s infinite alternate ease-in-out; /* Slow down the animation */
+  animation: shadow 1.7s infinite alternate ease-in-out; /* Slow down the animation */
+  
 }
 
 .mouse-animation::before {
