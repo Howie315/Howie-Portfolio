@@ -12,6 +12,31 @@ import { IoIosAnalytics } from "react-icons/io";
 import { useMediaQuery } from "react-responsive";
 import "./Experience.css";
 
+const Role = ({ role }) => (
+  <h4
+    style={{
+      color: "#8a8a8a",
+      fontWeight: "bold",
+      marginBottom: "0px",
+      marginTop: "10px",
+    }}
+  >
+    Role: {role}
+  </h4>
+);
+
+const Technologies = ({ techs }) => (
+  <p
+    style={{
+      color: "#8a8a8a",
+      fontStyle: "italic",
+      marginBottom: "15px",
+    }}
+  >
+    Technologies Used: {techs.join(", ")}
+  </p>
+);
+
 const Experience = () => {
   const isMobileDevice = useMediaQuery({
     query: "(max-device-width: 768px)",
@@ -39,6 +64,8 @@ const Experience = () => {
             <h3 className="vertical-timeline-element-title">
               Calendar Exercise Logger
             </h3>
+            <Role role="Frontend Developer" />
+            <Technologies techs={["React Native", "Firebase", "Workout DB"]} />
             <p>
               • Engineered an intuitive calendar module with the capability to
               schedule, track, and send real-time reminders for exercise
@@ -50,7 +77,6 @@ const Experience = () => {
             </p>
           </div>
         </VerticalTimelineElement>
-
         <VerticalTimelineElement
           className="vertical-timeline-element--work timeline-element"
           contentStyle={{ background: "#F1F1F1", color: "#333" }}
@@ -70,6 +96,10 @@ const Experience = () => {
             <h3 className="vertical-timeline-element-title">
               Sizzle Messaging
             </h3>
+            <Role role="Frontend Developer" />
+            <Technologies
+              techs={["Kotlin Multiplatform", "React", "IOS", "Mongo DB"]}
+            />
             <p>
               • Developed a secure messaging feature using the MongoDB database
               to enable dependable communication between patients and
@@ -81,7 +111,6 @@ const Experience = () => {
             </p>
           </div>
         </VerticalTimelineElement>
-
         <VerticalTimelineElement
           className="vertical-timeline-element--work timeline-element"
           contentStyle={{ background: "#F1F1F1", color: "#333" }}
@@ -96,6 +125,8 @@ const Experience = () => {
             }
           >
             <h3 className="vertical-timeline-element-title">Dog Database</h3>
+            <Role role="Fullstack Developer" />
+            <Technologies techs={["React", "Firebase"]} />
             <p>
               {" "}
               • Managed a team of 4 in developing a website for dog breeders to
@@ -121,6 +152,8 @@ const Experience = () => {
             }
           >
             <h3 className="vertical-timeline-element-title">Treasure Game</h3>
+            <Role role="Frontend Developer" />
+            <Technologies techs={["Java", "Java Swing"]} />
             <p>
               • Created an engaging treasure game using Java and graphic
               libraries, providing users with a highly interactive gaming
