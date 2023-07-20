@@ -111,6 +111,40 @@ const Experience = () => {
             </p>
           </div>
         </VerticalTimelineElement>
+
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work timeline-element"
+          contentStyle={{ background: "#F1F1F1", color: "#333" }}
+          contentArrowStyle={{ borderRight: "7px solid  #F1F1F1" }}
+          date="November 2022 - December 2022"
+          iconStyle={{ background: "#F1F1F1", color: "#333" }}
+          icon={<IoIosAnalytics />}
+        >
+          <div
+            onClick={() =>
+              window.open(
+                "https://github.com/Howie315/cs166-Project-Howie-and-Christian",
+                "_blank"
+              )
+            }
+          >
+            <h3 className="vertical-timeline-element-title">
+              Warehouse Management
+            </h3>
+            <Role role="FullStack Developer" />
+            <Technologies
+              techs={["Java", "JDBC", "Java Swing", "Postgres SQL"]}
+            />
+            <p>
+              • Co-developed a Java app integrated with a PostgreSQL database,
+              using JDBC for CRUD operations and data integrity. Played a key
+              role in architecting a normalized PostgreSQL database schema,
+              encompassing tables for diverse entities like users, stores,
+              products, warehouses, orders, and product updates, streamlining
+              the retail system's data management
+            </p>
+          </div>
+        </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work timeline-element"
           contentStyle={{ background: "#F1F1F1", color: "#333" }}
