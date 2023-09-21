@@ -8,11 +8,15 @@ import animationData from "./components/gojo.json";
 import MouseFollower from "./components/MouseFollower";
 import pdfFile from "./HowieNguyen.pdf"; // Import your PDF file
 import Lottie from "react-lottie-player";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
   const [loading, setLoading] = useState(true); // Add this state
   const [showMouseAnimation, setShowMouseAnimation] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const sections = ["home", "about", "experience"];
 
@@ -102,7 +106,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="navbar">
+        {/* <div className="navbar">
           <a href="#home" className={currentSection === "home" ? "active" : ""}>
             Home
           </a>
@@ -137,6 +141,78 @@ function App() {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+        </div> */}
+
+        <div className="navbar">
+          {/* Mobile Navbar */}
+          <div className="mobile-navbar">
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={() => setMenuOpen(true)}
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="left"
+              open={menuOpen}
+              onClose={() => setMenuOpen(false)}
+            >
+              <div
+                role="presentation"
+                onClick={() => setMenuOpen(false)}
+                onKeyDown={() => setMenuOpen(false)}
+              >
+                <a
+                  href="#home"
+                  className={currentSection === "home" ? "active" : ""}
+                >
+                  Home
+                </a>
+                <a
+                  href="#about"
+                  className={currentSection === "about" ? "active" : ""}
+                >
+                  About
+                </a>
+                <a
+                  href="#experience"
+                  className={currentSection === "experience" ? "active" : ""}
+                >
+                  Experience
+                </a>
+                <a href={pdfFile} download className="download-link button">
+                  Resume
+                </a>
+              </div>
+            </Drawer>
+          </div>
+
+          {/* Desktop Navbar */}
+          <div className="navbar">
+            <a
+              href="#home"
+              className={currentSection === "home" ? "active" : ""}
+            >
+              Home
+            </a>
+            <a
+              href="#about"
+              className={currentSection === "about" ? "active" : ""}
+            >
+              About
+            </a>
+            <a
+              href="#experience"
+              className={currentSection === "experience" ? "active" : ""}
+            >
+              Experience
+            </a>
+            <a href={pdfFile} download className="download-link button">
+              Resume
+            </a>
+          </div>
         </div>
 
         <div id="home">
